@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+#cambioColore{
+    background-color: blue;
+    height: 150px;
+    width: 150px;
+    color: white;
+}
+#daInserire{
+    background-color: blueviolet;
+    height: 150px;
+    width: 150px;
+    color: rgb(253, 253, 253);
+}
