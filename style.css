@@ -2,6 +2,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:20px;
+    background-color: aqua;
 }
 
 
@@ -16,4 +25,16 @@
     height: 150px;
     width: 150px;
     color: rgb(253, 253, 253);
+    
+}
+.classeAggiunta{
+    color: blueviolet;
+
+}
+
+#listaEvidenziata :hover{
+    background-color: rgb(253, 253, 253);
+    color: blueviolet;
+    font-size: medium;
+    cursor: pointer;
 }
