@@ -10,7 +10,7 @@ body{
     align-items: center;
     flex-direction: column;
     gap:20px;
-    background-color: aqua;
+    background-color: rgb(2, 190, 253);
 }
 
 
@@ -37,4 +37,15 @@ body{
     color: blueviolet;
     font-size: medium;
     cursor: pointer;
+}
+a{
+    text-decoration: none;
+    
+}
+ul{
+    list-style-type: none;
+}
+
+#frutta{
+    flex-direction: column;
 }

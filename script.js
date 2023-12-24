@@ -25,7 +25,7 @@ function inserisci() {
     if (noRepeatLogo == 0) {
         noRepeatLogo = 1;
         const nuovoElemento = document.createElement('img');
-        nuovoElemento.setAttribute('src', 'img/pngegg.png')
+        nuovoElemento.setAttribute('src', 'img/icons8-trash-dove-48.png')
 
         daInserire.appendChild(nuovoElemento);
 
@@ -144,3 +144,78 @@ function addClickCoso() {
 }
 
 bottoneNew.addEventListener('click', addClickCoso);
+
+
+// 14. Contatore di click su un bottone:Implementa un contatore che tiene traccia del numero di volte che un bottone viene cliccato.
+
+
+let contatore = document.getElementById('clickContatore');
+let conteggio = document.getElementById('counter');
+
+function clickConta() {
+    conteggio.innerHTML = parseInt(conteggio.innerHTML) + 1;
+
+
+
+
+}
+
+contatore.addEventListener('click', clickConta);
+
+//15. Cambia colore di sfondo al mouseout:Cambia il colore di sfondo di un elemento quando il cursore lascia l'area dell'elemento.
+let quadrato = document.getElementById('passaMouse');
+function mouseFuori() {
+    quadrato.style.backgroundColor = 'yellow';
+}
+
+quadrato.addEventListener('mouseout', mouseFuori);
+
+
+// 16. Modifica immagine al passaggio del mouse su un'altra:Cambia un'immagine visualizzata quando l'utente passa il mouse su un'altra immagine.
+let oldFoto = document.getElementById('vecchiaFoto');
+function nuovaFoto() {
+    const foto = document.createElement('img');
+    foto.setAttribute('src', 'img/icons8-meme-64.png');
+    oldFoto.parentNode.replaceChild(foto, oldFoto);
+
+
+}
+
+oldFoto.addEventListener('mouseover', nuovaFoto);
+
+
+// 17. Menu a tendina:Crea un menu che mostra o nasconde contenuti quando selezionato.
+
+let menuTendina = document.getElementById('menu');
+let menuUl = document.getElementById('frutta');
+
+function menu() {
+    if (menuUl.style.display == 'none') {
+        menuUl.style.background = 'green';
+        menuUl.style.display = 'flex';
+    } else {
+        menuUl.style.display = 'none';
+
+    }
+
+
+}
+
+menuTendina.addEventListener('click', menu);
+
+//18. Animazione di un div:Muovi un div orizzontalmente nella pagina utilizzando un bottone.
+
+let moviment = document.getElementById('movimento');
+let btnMove = document.getElementById('mover');
+function movimentoOrizzontale() {
+    moviment.style.transform = 'translateX(500px)';
+    btnMove.style.display = 'none';
+
+
+}
+
+moviment.addEventListener('click', movimentoOrizzontale);
+
+
+
+
