@@ -216,6 +216,139 @@ function movimentoOrizzontale() {
 
 moviment.addEventListener('click', movimentoOrizzontale);
 
+//19. Cambia testo con input:Modifica il testo di un elemento HTML in base a ciò che l'utente digita in un campo di input.
+
+let tasto = document.getElementById('modif');
+
+function cambiaTestoInput() {
+    let inputCambiaT = document.getElementById('cambiaTestoInput').value;
+    tasto.innerHTML = inputCambiaT;
+
+
+}
+
+tasto.addEventListener('click', cambiaTestoInput);
+
+
+
+
+//20. Controllo visibilità con checkbox:Usa una checkbox per controllare la visibilità di un elemento HTML.
+let mioDiv = document.getElementById("mioDivCheck");
+let check = document.getElementById("check");
+let checkSpan = document.getElementById("checkSpan");
+function checkVisibility() {
+    if (checkSpan.style.display == "none") {
+        check.checked = false;
+    } else {
+        check.checked = true;
+    }
+}
+function hideCheckSpan() {
+    if (checkSpan.style.display == "flex") {
+        checkSpan.style.display = "none";
+    } else {
+        checkSpan.style.display = "flex";
+    }
+
+}
+
+mioDiv.addEventListener("click", hideCheckSpan);
+//21. Cambia stile con cambio testo input:Modifica lo stile di un elemento quando cambia il testo all'interno di un campo di input.
+
+let cambiaStile = document.getElementById('cambiaStileInput');
+let btnDifferente = document.getElementById('sonoDifferente');
+function cambiaS() {
+    cambiaStile.style.color = 'green';
+    btnDifferente.style.color = 'blue';
+}
+
+cambiaStile.addEventListener('change', cambiaS);
+
+//22. Carosello di immagini:Crea un carosello di immagini con bottoni per scorrere avanti e indietro tra le immagini.
+let btnAvanti = document.getElementById("scorriAvanti");
+let totaleSlide = document.getElementsByClassName("slide");
+let btnIndietro = document.getElementById("scorriIndietro");
+let slideCorrente = 0;
+
+function caroselloUno() {
+    if (slideCorrente < 4) {
+        slideCorrente++;
+        let trasformInPx = 110 * slideCorrente + 'px';
+        let translate = 'translate(' + trasformInPx + ', 0px)';
+
+        for (let i = 0; i < totaleSlide.length; i++) {
+            totaleSlide[i].style.transform = translate; // Applichiamo la trasformazione a ciascun a tutte le slide
+        }
+
+
+    }
+    console.log(slideCorrente);
+}
+btnAvanti.addEventListener('click', caroselloUno);
+
+function caroselloDue() {
+    if (slideCorrente > -4) {
+        slideCorrente--;
+        let trasformInPx = 110 * slideCorrente + 'px';
+        let translate = 'translate(' + trasformInPx + ', 0px)';
+        for (let i = 0; i < totaleSlide.length; i++) {
+            totaleSlide[i].style.transform = translate; // Applichiamo la trasformazione a ciascun a tutte le slide
+        }
+    }
+    console.log(slideCorrente);
+}
+btnIndietro.addEventListener('click', caroselloDue);
+
+//23. Effetto dissolvenza al clic:Aggiungi un effetto di dissolvenza a un elemento quando viene cliccato.
+
+let dissolvenza = document.getElementById('dissolvenza');
+function dissolvenzaEffetto() {
+    dissolvenza.style.opacity = 0.5;
+}
+
+dissolvenza.addEventListener('click', dissolvenzaEffetto);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

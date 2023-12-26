@@ -5,7 +5,8 @@
     
 }
 body{
-    display: flex;
+    height: 100%;
+    display:flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -49,3 +50,20 @@ ul{
 #frutta{
     flex-direction: column;
 }
+#carosello{
+    display: flex;
+    flex-direction: row;
+}
+#immagini{
+    overflow:hidden;
+  transition: transform 0.5s ease-in-out;
+  display: flex;
+  flex-direction: row;
+}
+.slide { 
+    padding: 30px 30px;
+    
+    height: 110px;
+    width: 110px;
+  }
+  
