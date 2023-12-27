@@ -150,25 +150,56 @@
     <!--22. Carosello di immagini:**
     Crea un carosello di immagini con bottoni per scorrere avanti e indietro tra le immagini.-->
     22.<div id="carosello" style="background-color: rgb(32, 255, 7); width: 100px; height: 110px;">
-        <button id="scorriAvanti">-</button>
+        <button id="scorriIndietro">-</button>
         <div id="immagini">
-            <img class="slide" src="img/icons8-trash-dove-48.png">
-            <img class="slide" src="img/icons8-pogchamp-48.png">
-            <img class="slide" src="img/icons8-monaci-48.png">
-            <img class="slide" src="img/icons8-meme-64.png">
-            <img class="slide" src="img/icons8-emoji-32.png">
-
-
-
+        
         </div>
-            <button id="scorriIndietro">-</button>
+            <button id="scorriAvanti">-</button>
+            
     </div>
     <!--23. Effetto dissolvenza al clic:**
     Aggiungi un effetto di dissolvenza a un elemento quando viene cliccato.-->
    23.<div style="background-color: rgb(255, 7, 7); width: 100px; height: 110px;" >
 
-        <button id="dissolvenza">Dissolvenza</button>
+        <button id="dissolvenza">Start</button>
+        <p id="scritta">dissolvenza</p>
     </div>
+
+    <!--24. Timer semplice:**
+    Costruisci un timer con funzioni di avvio e arresto.-->
+    
+       24.<div id="timer" style="background-color: rgb(255, 255, 255); width: 100px; height: 100px;">
+            <p id="timerDisplay">0</p>
+                <div>
+                <button id="startButton">Start</button>
+                <button id="stop">Stop</button>
+                </div>
+    
+        </div>
+
+        <!--25. Visualizza coordinate del mouse:**
+    Rileva e mostra le coordinate del mouse quando si sposta sopra un elemento specifico.-->
+    25.<div style="background-color: rgb(234, 112, 112); width: 100px; height: 100px;">
+        <div  class="piccolino" style="background-color: rgb(110, 63, 238); width: 25px; height: 25px;">  
+        </div>
+        <div  class="piccolino" style="background-color: rgb(127, 238, 63); width: 25px; height: 25px;">  
+        </div>
+        <p>Coordinate</p>
+        <p class="coordinate">x:0 y:0</p>
+    </div>
+
+    <!--26. Cambia immagine di sfondo:**
+    Cambia l'immagine di sfondo di un div in base alla selezione effettuata in un dropdown.-->
+   26.<div style="background-color: rgb(112, 169, 234); width: 100px; height: 100px;">
+    <select id="immagine" name="meme">
+        <option value="img/icons8-meme-48.png">meme1</option>
+        <option value="img/icons8-emoji-32.png">meme2</option>
+    </select>
+    <div id="provaUno"></div>
+    
+
+    </div>
+        
 
 
     

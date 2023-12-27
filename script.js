@@ -15,7 +15,7 @@ function changeText() {
 cambiaTesto.addEventListener('click', changeText);
 
 
-//Aggiungi un elemento HTML:Inserisci un nuovo elemento HTML (come un paragrafo o un'immagine) in una posizione specifica del DOM.
+//3.Aggiungi un elemento HTML:Inserisci un nuovo elemento HTML (come un paragrafo o un'immagine) in una posizione specifica del DOM.
 
 let daInserire = document.getElementById('daInserire');
 let noRepeatLogo = 0;
@@ -270,43 +270,124 @@ let totaleSlide = document.getElementsByClassName("slide");
 let btnIndietro = document.getElementById("scorriIndietro");
 let slideCorrente = 0;
 
-function caroselloUno() {
-    if (slideCorrente < 4) {
+const slides = ["img/icons8-trash-dove-48.png", "img/icons8-pogchamp-48.png", "img/icons8-monaci-48.png", "img/icons8-meme-64.png", "img/icons8-emoji-32.png"]
+let img = document.createElement("img");
+
+img.setAttribute('src', slides[slideCorrente]);
+img.classList.add('slide');
+let foto = document.getElementById('immagini');
+
+foto.appendChild(img);
+
+
+function incremento() {
+
+    if (slideCorrente < slides.length - 1) {
         slideCorrente++;
-        let trasformInPx = 110 * slideCorrente + 'px';
-        let translate = 'translate(' + trasformInPx + ', 0px)';
-
-        for (let i = 0; i < totaleSlide.length; i++) {
-            totaleSlide[i].style.transform = translate; // Applichiamo la trasformazione a ciascun a tutte le slide
-        }
+        img.setAttribute('src', slides[slideCorrente]);
 
 
     }
-    console.log(slideCorrente);
-}
-btnAvanti.addEventListener('click', caroselloUno);
 
-function caroselloDue() {
-    if (slideCorrente > -4) {
+}
+btnAvanti.addEventListener('click', incremento);
+
+function decremento() {
+    if (slideCorrente > 0) {
         slideCorrente--;
-        let trasformInPx = 110 * slideCorrente + 'px';
-        let translate = 'translate(' + trasformInPx + ', 0px)';
-        for (let i = 0; i < totaleSlide.length; i++) {
-            totaleSlide[i].style.transform = translate; // Applichiamo la trasformazione a ciascun a tutte le slide
-        }
+        img.setAttribute('src', slides[slideCorrente]);
+
+
     }
-    console.log(slideCorrente);
+
 }
-btnIndietro.addEventListener('click', caroselloDue);
+btnIndietro.addEventListener('click', decremento);
 
 //23. Effetto dissolvenza al clic:Aggiungi un effetto di dissolvenza a un elemento quando viene cliccato.
 
 let dissolvenza = document.getElementById('dissolvenza');
+let scritta = document.getElementById('scritta');
 function dissolvenzaEffetto() {
-    dissolvenza.style.opacity = 0.5;
+    scritta.classList.add('transition')
 }
 
 dissolvenza.addEventListener('click', dissolvenzaEffetto);
+//24. Timer semplice:Costruisci un timer con funzioni di avvio e arresto.
+
+let timer = document.getElementById('timer');
+let btnStart = document.getElementById('startButton');
+let btnStop = document.getElementById('stop');
+let timerSpan = document.getElementById('timerDisplay');
+let seconds = 0;
+let timerInterval;
+
+function startTimer() {
+    timerInterval = setInterval(motoreDellaFunz, 100); // 1000 milliseconds = 1 second
+}
+function motoreDellaFunz() {
+    seconds = seconds + 1;
+    timerSpan.innerHTML = seconds;
+}
+
+btnStart.addEventListener('click', startTimer);
+
+function stopTimer() {
+    clearInterval(timerInterval);
+
+}
+btnStop.addEventListener('click', stopTimer);
+//25. Visualizza coordinate del mouse:Rileva e mostra le coordinate del mouse quando si sposta sopra un elemento specifico.
+let quadrati = document.querySelectorAll('.piccolino')
+let x = 0;
+let y = 0;
+let aSchermo = document.querySelector('.coordinate');
+
+function porcaPuttana(event) {
+    x = event.clientX;
+    y = event.clientY;
+    aSchermo.innerHTML = 'x:' + x + 'y:' + y;
+
+
+
+}
+for (let i = 0; i < quadrati.length; i++) {
+    quadrati[i].addEventListener('mousemove', porcaPuttana);
+}
+//26. Cambia immagine di sfondo:Cambia l'immagine di sfondo di un div in base alla selezione effettuata in un dropdown.
+let selector = document.getElementById('immagine');
+let imgMeme = document.createElement('img');
+let mioDivUno = document.getElementById("provaUno");
+function changeMeme(event) {
+    imgMeme.setAttribute('src', event.target.value);
+    mioDivUno.appendChild(imgMeme);
+
+
+
+}
+
+selector.addEventListener('change', (event) => changeMeme(event));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

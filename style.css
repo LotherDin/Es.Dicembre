@@ -67,3 +67,10 @@ ul{
     width: 110px;
   }
   
+#scritta{
+    transition: all 1s ease-in-out;
+  }
+  .transition{
+    opacity: 0;
+   
+  }
