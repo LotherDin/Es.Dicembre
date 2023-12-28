@@ -199,7 +199,116 @@
     
 
     </div>
+    <!--27. Barra di progresso con bottone:**
+    Realizza una barra di progresso che si aggiorna ogni volta che un bottone viene premuto.-->
+
+    27.<div style="background-color: rgb(0, 0, 0); width: 100px; height: 100px;">
+        <div id="progressBar">
+            <div id="progress">0%</div>
+        </div>
         
+        <button id="btnUpdate" >Aggiorna Barra di Progresso</button>
+        
+    </div>
+    <!--28. Form con validazione dati:**
+    Crea un form con la validazione dei dati inseriti in tempo reale.-->
+
+    28.<div>
+        <table>
+            <form method="post" name="modulo">
+            <tr>
+            
+                <td>
+                <b>REGISTRAZIONE FORM :</b>
+                <button id="btnInvioForm">InvioForm</button>
+                </td>
+            
+            </tr>
+            <tr><td><b>Nome</b></td><td><input type="text" name="nome"></td></tr>
+            <tr><td><b>Cognome</b></td><td><input type="text" name="cognome"></td></tr>
+            <tr><td><b>Nickname</b></td><td><input type="text" name="nickname"></td></tr>
+            
+            </form>
+        </table>
+
+    </div>
+    <!--29. Tooltip personalizzati:**
+    Mostra dei tooltip personalizzati quando l'utente passa-->
+    29.<div class=" mioTooltip">Passa il mouse qui sopra.
+
+        <span class="mioTooltipText">
+        <img id="e1" class="img-fluid mb-2" src="img/icons8-meme-64.png"></span>
+        
+        <span class="mioTooltipText">Ciao io sono un tooltip!</span> 
+         </div>
+                             
+        <div class=" mio_tooltip">Passa il mouse qui sopra
+        <span class="mioTooltipText padTooltip"><a href="#">LINK HTTP</a> </span>  
+         </div>
+
+         <!--il mouse sopra gli elementi.
+
+
+    30. Drag and drop:**
+    Permetti agli utenti di trascinare elementi in un'area designata.-->
+    30.<div id="drag-area">
+
+    </div>
+
+   <!--31. Genera numero casuale:**
+    Al clic di un bottone, genera un numero casuale e visualizzalo.--> 
+    31.<div style="background-color: rgb(179, 192, 63); width: 100px; height: 100px;">
+        <button id="generaNumero">Genera numero</button>
+        <p id="numeroCasuale">Numero</p>
+
+    </div>
+
+    <!--32. Animazione colore e dimensione:**
+    Crea un'animazione che cambia colore e dimensione di un elemento.-->
+    32.<div style="background-color: rgb(67, 67, 247); width: 100px; height: 100px;">
+        <div style="background-color: rgb(28, 240, 123); width: 50px; height: 50px;" id="dimensione">
+        <button style="width: 20px; height: 20px;" id="animazione">A</button>
+        </div>
+    
+
+    </div>
+    <!--33. Orologio digitale:**
+    Visualizza l'ora corrente in un orologio digitale.-->
+    33.<div style="background-color: rgb(173, 66, 66); width: 100px; height: 100px;">
+        <p id="ora">00:00:00</p>
+
+    
+
+    </div>
+    34.<!--34. Ridimensiona immagine con slider:**
+    Usa uno slider per ridimensionare dinamicamente un'immagine.-->
+     <div>
+        <input id="slider" type="range"  min="10" max="100" value="50" step="1">
+     </div>
+     
+        <div>
+            <img id="pog" src="img/icons8-pogchamp-48.png">
+        </div>
+
+    <!--35. Sistema di tab:**
+    Crea un sistema di tab che mostra e nasconde contenuti diversi.-->
+    35.<div class="tab-container">
+        <div style="background-color: red;" class="tab" id="tab1Button">Tab rosso</div>
+        <div style="background-color: green;" class="tab" id="tab2Button">Tab verde</div>
+        <div style="background-color: blue;" class="tab" id="tab3Button">Tab blue</div>
+    </div>
+    
+    <div style="background-color: red;"  id="tab1" class="tab-content active">
+        Contenuto rosso
+    </div>
+    
+    <div style="background-color: green;"   id="tab2" class="tab-content">
+        Contenuto verde
+    </div>
+    
+    <div style="background-color: blue;"  id="tab3" class="tab-content">
+        Contenuto blue
+    </div>
 
 
     

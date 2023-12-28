@@ -360,12 +360,222 @@ let mioDivUno = document.getElementById("provaUno");
 function changeMeme(event) {
     imgMeme.setAttribute('src', event.target.value);
     mioDivUno.appendChild(imgMeme);
+}
 
+selector.addEventListener('change', (event) => changeMeme(event));
+
+//27.Barra di progresso con bottone:Realizza una barra di progresso che si aggiorna ogni volta che un bottone viene premuto.
+// Funzione per aggiornare la barra di progresso
+
+let bottoneBarra = document.getElementById("btnUpdate");
+function updateProgressBar() {
+    // Ottieni l'elemento della barra di progresso
+    let progressBar = document.getElementById('progress');
+
+    // Ottieni il valore corrente della barra di progresso (senza il simbolo "%")
+    let currentProgress = parseInt(progressBar.style.width) || 0;
+
+    // Aggiorna il valore della barra di progresso
+    currentProgress += 10; // Incremento del 10% ad ogni pressione del bottone
+    if (currentProgress > 100) {
+        currentProgress = 100; // Limita il valore massimo al 100%
+    }
+
+    // Aggiorna la larghezza della barra di progresso
+    progressBar.style.width = currentProgress + '%';
+
+    // Aggiorna il testo della barra di progresso
+    progressBar.innerHTML = currentProgress + '%';
+}
+
+bottoneBarra.addEventListener('click', updateProgressBar);
+
+//28. Form con validazione dati:Crea un form con la validazione dei dati inseriti in tempo reale.
+let btnInvioForm = document.getElementById("btnInvioForm");
+function modulo() {
+    let nome = document.modulo.nome.value;
+    let cognome = document.modulo.cognome.value;
+    let nickname = document.modulo.nickname.value;
+
+
+    if ((nome == "") || (nome == "undefined")) {
+        alert("Il campo Nome è obbligatorio.");
+        document.modulo.nome.focus();
+        return false;
+    }
+    //Effettua il controllo sul campo COGNOME ~`|| operatore logico OR che restituisce true se almeno una delle condizioni e' vera`~
+    else if ((cognome == "") || (cognome == "undefined")) {
+        alert("Il campo Cognome è obbligatorio.");
+        document.modulo.cognome.focus();
+        return false;
+    }
+    //Effettua il controllo sul campo NICKNAME
+    else if ((nickname == "") || (nickname == "undefined")) {
+        alert("Il campo Nickname è obbligatorio.");
+        document.modulo.nickname.focus();
+        return false;
+
+    }
+    else {
+        document.modulo.action = "elabora_dati.asp";
+        document.modulo.submit();
+    }
+
+}
+
+btnInvioForm.addEventListener('click', modulo);
+
+//29. Tooltip personalizzati:Mostra dei tooltip personalizzati quando l'utente passa
+
+//QUESTO L'HO FATTO IN HTML E CSS
+
+
+//il mouse sopra gli elementi.  
+
+
+//30. Drag and drop:Permetti agli utenti di trascinare elementi in un'area designata.
+let dragArea = document.getElementById("drag-area");
+
+// Aggiungi gli eventi di trascinamento all'area di trascinamento
+dragArea.ondrop = function (event) {
+    drop(event);
+};
+
+dragArea.ondragover = function (event) {
+    allowDrop(event);
+};
+
+// Creazione dinamica degli elementi
+for (let i = 1; i <= 3; i++) {
+    var draggableElement = createDraggableElement("Elemento " + i);
+    dragArea.appendChild(draggableElement);
+}
+
+function allowDrop(event) {
+    event.preventDefault();
+}
+
+function drag(event) {
+    event.dataTransfer.setData("text", event.target.innerText);
+}
+
+function drop(event) {
+    event.preventDefault();
+    let data = event.dataTransfer.getData("text");
+    let draggableElement = createDraggableElement(data);
+
+    // Aggiungi l'elemento trascinato all'area di trascinamento
+    event.target.appendChild(draggableElement);
+}
+
+function createDraggableElement(text) {
+    let draggableElement = document.createElement("div");
+    draggableElement.className = "draggable";
+    draggableElement.draggable = true;
+    draggableElement.innerText = text;
+
+    // Aggiungi l'evento di trascinamento
+    draggableElement.ondragstart = function (event) {
+        drag(event);
+    };
+
+    return draggableElement;
+}
+//31. Genera numero casuale:Al clic di un bottone, genera un numero casuale e visualizzalo.
+let generaNumero = document.getElementById("generaNumero");
+
+// Aggiungi l'evento di click al bottone
+generaNumero.addEventListener('click', genera);
+
+function genera() {
+    // Ottieni l'elemento con id "numeroCasuale"
+    let numeroCasuale = document.getElementById("numeroCasuale");
+
+    // Genera un numero casuale compreso tra 1 e 100
+    let numeroGenerato = Math.floor(Math.random() * 100) + 1;
+
+    // Mostra il numero casuale nell'elemento con id "numeroCasuale"
+    numeroCasuale.innerText = "Numero : " + numeroGenerato;
+}
+
+//32. Animazione colore e dimensione:Crea un'animazione che cambia colore e dimensione di un elemento.
+let grandezzaDiv = document.getElementById("dimensione");
+let btnAnimazione = document.getElementById("animazione");
+function cambiaColore() {
+    grandezzaDiv.style.backgroundColor = "yellow";
+    grandezzaDiv.style.width = "60px";
+    grandezzaDiv.style.height = "60px";
 
 
 }
 
-selector.addEventListener('change', (event) => changeMeme(event));
+btnAnimazione.addEventListener('click', cambiaColore);
+
+//33. Orologio digitale:Visualizza l'ora corrente in un orologio digitale.
+let orologio = document.getElementById("ora");
+function orario() {
+    let ora = new Date();
+    orologio.innerText = ora.getHours() + ":" + ora.getMinutes() + ":" + ora.getSeconds();
+
+
+}
+
+setInterval(orario, 1000);
+//34. Ridimensiona immagine con slider:Usa uno slider per ridimensionare dinamicamente un'immagine.
+
+let slider = document.getElementById("slider");
+let pog = document.getElementById("pog");
+function sliderEffect() {
+
+    let scaleFactor = slider.value / 100;
+    pog.style.width = scaleFactor * 100 + "%";
+}
+slider.addEventListener('input', sliderEffect);
+//35. Sistema di tab:Crea un sistema di tab che mostra e nasconde contenuti diversi.
+
+// Aggiungi gli eventi onclick alle schede tramite JavaScript
+document.getElementById('tab1Button').onclick = function () {
+    mostraContenuto('tab1');
+};
+
+document.getElementById('tab2Button').onclick = function () {
+    mostraContenuto('tab2');
+};
+
+document.getElementById('tab3Button').onclick = function () {
+    mostraContenuto('tab3');
+};
+
+function mostraContenuto(tabId) {
+    // Nascondi tutti i contenuti delle tab
+    let tabContents = document.getElementsByClassName('tab-content');
+    for (let i = 0; i < tabContents.length; i++) {
+        tabContents[i].classList.remove('active');
+    }
+
+    // Mostra solo il contenuto della tab selezionata
+    let selectedTab = document.getElementById(tabId);
+    if (selectedTab) {
+        selectedTab.classList.add('active');
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
