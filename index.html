@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Es.Dicembre</title>
 </head>
 <body>
@@ -309,10 +310,58 @@
     <div style="background-color: blue;"  id="tab3" class="tab-content">
         Contenuto blue
     </div>
+    <!--36. Cambio layout con bottoni:**
+    Cambia il layout di una pagina (ad esempio da griglia a lista) utilizzando diversi bottoni.-->
+        36.<div class="container36">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <button id="btnGrid"> Griglia</button>
+            <button id="btnList"> Lista</button>
+        </div>
+        
+    <!--37. Gioco 'Indovina il numero':**
+    Realizza un semplice gioco dove l'utente deve indovinare un numero.-->
+    38.<div style="background-color: rgb(248, 19, 206); width: 200px; height: 100px;">
+        <p>NUMERO ?</p>
+        <input type="number" id="guessInput" min="1" max="10">
+        <button id="btnCercaNumero">Controlla</button>
+        <p id="message"></p>
 
+    </div>
+    <!--38. Lightbox per immagini:**
+    Crea un lightbox per visualizzare le immagini in grande.-->
+    38.<div class="galleria">
+        <img src="img/icons8-meme-64.png" onclick="openLightbox('img/icons8-meme-64.png')">
+        <img src="img/icons8-emoji-32.png" onclick="openLightbox('img/icons8-emoji-32.png')">
+        </div>
+        <div id="lightbox">
+            <span class="close" onclick="closeLightbox()">&times;</span>
+            <img id="lightboxImage" src="">
+            
 
-    
+        </div>
+    <!--39. Genera grafici:**
+    Crea grafici semplici a partire da dati inseriti dall'utente.-->
+    39.
+    <div>
+        <label for="dataInput">Inserisci dati separati da virgola:</label>
+        <input type="text" id="dataInput" placeholder="Es. 10, 20, 30">
+        <button onclick="generatePieChart()">Genera Grafico a Torta</button>
+    </div>
 
+    <div>
+        <canvas id="myPieChart" width="400" height="400"></canvas>
+    </div>
+    <!--40. Editor di testo semplice:**
+    Costruisci un editor di testo con opzioni di formattazione base.-->
+    40. QUESTA PROVA NON FUNZIONA<div>
+        <button onclick="formatText('bold')">Grassetto</button>
+        <button onclick="formatText('italic')">Corsivo</button>
+        <button onclick="formatText('underline')">Sottolineato</button>
+    </div>
+    <div contenteditable="true" id="editor" class="editor"></div>
     
     
 

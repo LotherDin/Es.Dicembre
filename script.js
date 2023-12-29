@@ -560,6 +560,149 @@ function mostraContenuto(tabId) {
     }
 }
 
+//36. Cambio layout con bottoni:Cambia il layout di una pagina (ad esempio da griglia a lista) utilizzando diversi bottoni.
+let btnGrid = document.getElementById("btnGrid");
+let btnList = document.getElementById("btnList");
+function cambiaLayout(layoutType) {
+    const container36 = document.querySelector('.container36');
+    if (layoutType === 'grid') {
+        container36.style.flexDirection = 'row';
+        container36.style.flexWrap = 'wrap';
+
+    } else if (layoutType === 'list') {
+        container36.style.flexDirection = 'column';
+        container36.style.flexWrap = 'nowrap';
+    }
+
+
+}
+
+btnGrid.addEventListener('click', function () {
+    cambiaLayout('grid');
+});
+
+btnList.addEventListener('click', function () {
+    cambiaLayout('list');
+});
+//37. Gioco 'Indovina il numero':Realizza un semplice gioco dove l'utente deve indovinare un numero.
+const secretNumber = Math.floor(Math.random() * 100) + 1;
+function checkGuess() {
+    const guessInput = document.getElementById("guessInput");
+    const message = document.getElementById("message");
+    const user = parseInt(guessInput.value);
+    if (isNaN(user) || user < 1 || user > 100) {
+        message.textContent = "Il numero deve essere compreso tra 1 e 100.";
+    } else {
+        if (user === secretNumber) {
+            message.textContent = "Hai vinto!";
+
+        } else {
+            message.textContent = 'Il numero corretto era:' + secretNumber + '';
+
+        }
+    }
+}
+const btnCercaNumero = document.getElementById("btnCercaNumero");
+
+btnCercaNumero.addEventListener('click', checkGuess);
+//38. Lightbox per immagini:Crea un lightbox per visualizzare le immagini in grande.
+
+
+function openLightbox(imageSrc) {
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    lightboxImage.src = imageSrc;
+    lightbox.style.display = "flex";
+}
+function closeLightbox() {
+    const lightbox = document.getElementById("lightbox");
+    lightbox.style.display = "none";
+}
+// --SE VOLESSI IL CLICK DIRETTAMENTE IN JS E NO IN LINEA IN HTML--
+
+
+// const galleryImages = document.querySelectorAll('#galleria img');
+
+// Aggiungere un gestore di eventi di clic a ciascuna immagine nella galleria
+
+// galleryImages.forEach(image => {
+// image.addEventListener('click', function() {
+//       openLightbox(image.src);
+//  });
+//  });
+
+//39.Genera grafici:Crea grafici semplici a partire da dati inseriti dall'utente.
+function generatePieChart() {
+    const dataInput = document.getElementById('dataInput').value;
+    const dataArray = dataInput.split(',').map(Number);
+
+    const ctx = document.getElementById('myPieChart').getContext('2d');
+
+    const myPieChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: Array.from({ length: dataArray.length }, function (_, i) {
+                return 'Categoria ' + (i + 1);
+            }),
+            datasets: [{
+                data: dataArray,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.8)',
+                    'rgba(54, 162, 235, 0.8)',
+                    'rgba(255, 206, 86, 0.8)',
+                    'rgba(75, 192, 192, 0.8)',
+                    'rgba(153, 102, 255, 0.8)',
+                ],
+                borderColor: 'rgba(255, 255, 255, 1)',
+                borderWidth: 1
+            }]
+        }
+    });
+}
+
+//40. Editor di testo semplice:Costruisci un editor di testo con opzioni di formattazione base.
+
+function toggleFormat(format) {
+    const selection = window.getSelection();
+    const range = selection.getRangeAt(0);
+
+    // Creare un nuovo elemento span con la classe corrispondente al formato
+    const span = document.createElement('span');
+    span.classList.add(format);
+
+    if (range.toString() !== '') {
+        // Se del testo è selezionato, creare un nuovo elemento con il formato desiderato
+        const formattedText = document.createElement(format);
+        formattedText.textContent = range.toString();
+        range.deleteContents();
+        range.insertNode(formattedText);
+    } else {
+        // Se nessun testo è selezionato, inserire l'elemento span
+        span.textContent = 'Inserisci testo qui';
+        range.insertNode(span);
+    }
+}
+
+// Aggiungi un evento per salvare il contenuto dell'editor quando l'utente esce dall'editor
+document.getElementById('editor').addEventListener('input', function () {
+    const editor = document.getElementById('editor');
+    localStorage.setItem('editorContent', editor.innerHTML);
+});
+
+// Ripristina il contenuto dell'editor al caricamento della pagina
+window.addEventListener('load', function () {
+    const editor = document.getElementById('editor');
+    const savedContent = localStorage.getItem('editorContent');
+    if (savedContent) {
+        editor.innerHTML = savedContent;
+    }
+});
+
+
+
+
+
+
 
 
 
