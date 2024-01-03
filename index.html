@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <!-- <script src="node_modules/zooming/docs/cd" ></script>-->
     <title>Es.Dicembre</title>
 </head>
 <body>
@@ -432,7 +433,7 @@ Crea un gioco di memoria con carte da girare.-->
 
   <!--46. Sistema di filtraggio elementi:**
 Implementa un sistema per filtrare un elenco di elementi.-->
-46 <div class="filterContainer">
+46.<div class="filterContainer">
     <label for="filterType">Filtra per tipo:</label>
     <select id="filterType">
         <option value="all">Tutti i tipi</option>
@@ -445,10 +446,40 @@ Implementa un sistema per filtrare un elenco di elementi.-->
 </div>
         <div id="itemList"></div>
 
+        <!--44. Integra API esterna:**
+Utilizza un'API esterna per visualizzare dati, come le informazioni meteorologiche.
+-->
+44. <h1>Weather App</h1>
+
+<div>
+    <label for="cityInput">Enter City:</label>
+    <input type="text" id="cityInput" placeholder="Enter city name">
+    <button onclick="getWeather()">Get Weather</button>
+</div>
+
+<div id="weatherInfo"></div>
+
+<!--47. Galleria immagini con zoom:**
+Crea una galleria di immagini che permette di zoomare al clic.-->
+47.
+<div class="zoomImg">
+    <img src="img/icons8-meme-48.png" data-action="zoom">
+    <img src="img/icons8-monaci-48.png" data-action="zoom">
+
+</div>
 
     
-
-
+<!--49. Applicazione todo-list:**
+Sviluppa un'applicazione per gestire una lista di cose da fare.-->
+49.<div>
+    <h1>To Do List</h1>
+    <input id="inputAdd">
+    <button id="buttonAdd">Aggiungi</button>
+</div>
+<div>
+    <ul id="list">
+    </ul>
+</div>
 
     <script src="script.js"></script>
     

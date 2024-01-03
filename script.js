@@ -955,6 +955,53 @@ document.getElementById('filterType').addEventListener('change', function () {
 
 });
 
+//44. Integra API esterna:Utilizza un'API esterna per visualizzare dati, come le informazioni meteorologiche.
+
+function getWeather() {
+    const apiKey = '0f70330c56f328e8429a8dd3a6190603'
+    const cityInput = document.getElementById('cityInput').value;
+
+    const apiUrl = 'https://home.openweathermap.org/dashboard/trigger';
+
+
+    //effettuo la richiesta con FETCH
+    fetch(apiUrl)
+        .then(responde => responde.json())
+        .then(data => {
+            //estrazione info meteo dalla risposta
+            const temperature = data.main.temp;
+            const description = data.weather[0].description;
+
+            //visualizza le info sulla pagina html
+            const weatherInfoElement = document.getElementById('weatherInfo');
+            weatherInfoElement.innerHTML = `<p>Temperature: ${temperature}°C</p>
+        <p>Condition: ${description}</p>`;
+        })
+
+        .catch(error => {
+            console.error('Error fetching weather data:', error);
+            const weatherInfoElement = document.getElementById('weatherInfo');
+            weatherInfoElement.innerHTML = '<p>Error fetching weather data. Please try again.</p>';
+        });
+}
+//47. Galleria immagini con zoom:Crea una galleria di immagini che permette di zoomare al clic.
+document.addEventListener('DOMContentLoaded', function () {
+    zoomingjs.init();
+
+});
+
+//49. Applicazione todo-list:Sviluppa un'applicazione per gestire una lista di cose da fare.
+let inputAdd = document.getElementById("inputAdd");
+let buttonAdd = document.getElementById("buttonAdd");
+let list = document.getElementById("list");
+
+function aggiungi() {
+    let taskName = inputAdd.value;
+    let newListItems = document.createElement("li");
+    newListItems.textContent = taskName;
+    list.appendChild(newListItems)
+}
+buttonAdd.addEventListener("click", aggiungi);
 
 
 
