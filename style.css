@@ -232,8 +232,8 @@ img{
     margin-left: 10%;
     width: 20%;
     height: 20%;
-    background: url(img/icons8-monaci-48.png);
-    background-size: cover;
+    background:url(img/icons8-monaci-48.png) 41;
+    
     background-repeat: no-repeat;
     
     
