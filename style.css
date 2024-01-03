@@ -221,8 +221,8 @@ img{
 /*esercizio 41*/
 .parallaxContainer {
     
-    width: 100%;
-    height: 100vh;
+    width: 10%;
+    height: 30vh;
     
 }
 
@@ -230,8 +230,8 @@ img{
     position: absolute;
     margin-top: 10%;
     margin-left: 10%;
-    width: 50%;
-    height: 50%;
+    width: 20%;
+    height: 20%;
     background: url(img/icons8-monaci-48.png);
     background-size: cover;
     background-repeat: no-repeat;
