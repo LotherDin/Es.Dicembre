@@ -985,10 +985,13 @@ function getWeather() {
         });
 }
 //47. Galleria immagini con zoom:Crea una galleria di immagini che permette di zoomare al clic.
-document.addEventListener('DOMContentLoaded', function () {
-    zoomingjs.init();
+let classeImmagini = document.getElementsByClassName("zoomImg")
+for (let i = 0; i < classeImmagini.length; i++) {
+    classeImmagini[i].addEventListener("click", function () {
+        this.style.transform = "scale(2.0)";
+    });
+}
 
-});
 
 //49. Applicazione todo-list:Sviluppa un'applicazione per gestire una lista di cose da fare.
 let inputAdd = document.getElementById("inputAdd");
