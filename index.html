@@ -343,93 +343,17 @@
             
 
         </div>
-    <!--39. Genera grafici:**
-    Crea grafici semplici a partire da dati inseriti dall'utente.-->
-    39.
-    <div>
-        <label for="dataInput">Inserisci dati separati da virgola:</label>
-        <input type="text" id="dataInput" placeholder="Es. 10, 20, 30">
-        <button onclick="generatePieChart()">Genera Grafico a Torta</button>
-    </div>
-
-    <div>
-        <canvas id="myPieChart" width="400" height="400"></canvas>
-    </div>
+    
     <!--40. Editor di testo semplice:**
     Costruisci un editor di testo con opzioni di formattazione base.-->
-    40. QUESTA PROVA NON FUNZIONA<div>
-        <button onclick="formatText('bold')">Grassetto</button>
-        <button onclick="formatText('italic')">Corsivo</button>
-        <button onclick="formatText('underline')">Sottolineato</button>
+    40. <div>
+        <input id="inputEditor">
+        <button id="bold">Grassetto</button>
+        <button id="italic">Italic</button>
+        <button id="underline">Underline</button>
     </div>
-    <div contenteditable="true" id="editor" class="editor"></div>
 
 
-    <!--41. Effetto parallax:**
-        Implementa un effetto parallax su uno sfondo mentre l'utente scorre la pagina.-->
-       41.
-    <div style="background-color: rgb(248, 19, 206); width: 200px; height: 100px;" class="parallaxContainer">
-        <div class="parallaxBackground">
-            
-        </div>
-        <div class="parallaxContent">
-            
-            
-            
-        </div>
-    </div>
-    <!--42. Form multi-step:**
-Crea un form suddiviso in più passaggi con validazione per ciascuno.-->
- 42. 
- <div class="form-container">
-    <form id="multiStepForm">
-        <!-- Passaggio 1 -->
-        <div class="form-step active" id="step1">
-            <h2>Passaggio 1: Informazioni personali</h2>
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required>
-            <br>
-            <label for="cognome">Cognome:</label>
-            <input type="text" id="cognome" name="cognome" required>
-            <br>
-            <div class="form-buttons">
-                <button type="button" class="btn next" onclick="nextStep('step1', 'step2')">Avanti</button>
-            </div>
-        </div>
-
-        <!-- Passaggio 2 -->
-        <div class="form-step" id="step2">
-            <h2>Passaggio 2: Dettagli aggiuntivi</h2>
-            <label for="indirizzo">Indirizzo:</label>
-            <input type="text" id="indirizzo" name="indirizzo" required>
-            <br>
-            <label for="citta">Città:</label>
-            <input type="text" id="citta" name="citta" required>
-            <br>
-            <div class="form-buttons">
-                <button type="button" class="btn" onclick="prevStep('step2', 'step1')">Indietro</button>
-                <button type="submit" class="btn">Invia</button>
-            </div>
-        </div>
-    </form>
-</div>
-
-<!--45. Gioco di memoria:**
-Crea un gioco di memoria con carte da girare.-->
-45.
-<div id="game-container">
-    <div id="score-container">
-    <!-- <div id="score">Score: 0</div>--> 
-    </div>
-    <div id="timer-container">
-     <!-- <div id="timer">Time: 10</div>-->
-    </div>
-    <div id="game-title">LotherGame</div>
-      <div id="game-wrapper">
-    <div id="game-board"></div>
-    <div id="win-message">Hai vinto! Clicca per una nuova partita.</div>
-      </div>
-  </div>
 
   <!--46. Sistema di filtraggio elementi:**
 Implementa un sistema per filtrare un elenco di elementi.-->
@@ -446,19 +370,7 @@ Implementa un sistema per filtrare un elenco di elementi.-->
 </div>
         <div id="itemList"></div>
 
-        <!--44. Integra API esterna:**
-Utilizza un'API esterna per visualizzare dati, come le informazioni meteorologiche.
--->
-44. <h1>Weather App</h1>
-
-<div>
-    <label for="cityInput">Enter City:</label>
-    <input type="text" id="cityInput" placeholder="Enter city name">
-    <button onclick="getWeather()">Get Weather</button>
-</div>
-
-<div id="weatherInfo"></div>
-
+      
 <!--47. Galleria immagini con zoom:**
 Crea una galleria di immagini che permette di zoomare al clic.-->
 47.
@@ -467,11 +379,7 @@ Crea una galleria di immagini che permette di zoomare al clic.-->
     <img src="img/icons8-monaci-48.png" >
 
 </div>
-<!--48. Integra Google Maps:**
-Mostra una mappa con marcatori personalizzati utilizzando Google Maps.-->
-48.<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100415.37144221245!2d13.274716123333931!3d38.14064971527834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1319e8c9814ed099%3A0xa0b042c233bd880!2sPalermo%20PA!5e0!3m2!1sit!2sit!4v1704454294747!5m2!1sit!2sit"
- width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-</iframe>
+
 
     
 <!--49. Applicazione todo-list:**

@@ -631,300 +631,41 @@ function closeLightbox() {
 //  });
 //  });
 
-//39.Genera grafici:Crea grafici semplici a partire da dati inseriti dall'utente.
-function generatePieChart() {
-    const dataInput = document.getElementById('dataInput').value;
-    const dataArray = dataInput.split(',').map(Number);
-
-    const ctx = document.getElementById('myPieChart').getContext('2d');
-
-    const myPieChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: Array.from({ length: dataArray.length }, function (_, i) {
-                return 'Categoria ' + (i + 1);
-            }),
-            datasets: [{
-                data: dataArray,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.8)',
-                    'rgba(54, 162, 235, 0.8)',
-                    'rgba(255, 206, 86, 0.8)',
-                    'rgba(75, 192, 192, 0.8)',
-                    'rgba(153, 102, 255, 0.8)',
-                ],
-                borderColor: 'rgba(255, 255, 255, 1)',
-                borderWidth: 1
-            }]
-        }
-    });
-}
 
 //40. Editor di testo semplice:Costruisci un editor di testo con opzioni di formattazione base.
-// NON HO IDEA COMPLETAMENTE 
+const inputEditor = document.getElementById("inputEditor");
+const grassetto = document.getElementById("bold");
+const italic = document.getElementById("italic");
+const underline = document.getElementById("underline");
 
-
-//function formatText(command) {
-//  document.execCommand(command, false, null);   EXECCOMMAND NON VIENE LETTO DAL BROSER
-//}
-
-//window.addEventListener('beforeunload', function() {
-//  const editor = document.getElementById('editor');
-// localStorage.setItem('editorContent', editor.innerHTML);
-//});
-
-// Ripristina il contenuto dell'editor al caricamento della pagina
-//window.addEventListener('load', function() {
-//  const editor = document.getElementById('editor');
-//  const savedContent = localStorage.getItem('editorContent');
-// if (savedContent) {
-//     editor.innerHTML = savedContent;
-// }
-//});//
-
-function toggleFormat(format) {
-    const selection = window.getSelection();
-    const range = selection.getRangeAt(0);
-
-    // Creare un nuovo elemento span con la classe corrispondente al formato
-    const span = document.createElement('span');
-    span.classList.add(format);
-
-    if (range.toString() !== '') {
-        // Se del testo è selezionato, creare un nuovo elemento con il formato desiderato
-        const formattedText = document.createElement(format);
-        formattedText.textContent = range.toString();
-        range.deleteContents();
-        range.insertNode(formattedText);
-    } else {
-        // Se nessun testo è selezionato, inserire l'elemento span
-        span.textContent = 'Inserisci testo qui';
-        range.insertNode(span);
-    }
+function boldPulsante() {
+    inputEditor.style.fontWeight = "bold";
+    inputEditor.style.fontStyle = "normal";
+    inputEditor.style.textDecoration = "none";
 }
+bold.addEventListener("click", boldPulsante)
 
-// Aggiungi un evento per salvare il contenuto dell'editor quando l'utente esce dall'editor
-document.getElementById('editor').addEventListener('input', function () {
-    const editor = document.getElementById('editor');
-    localStorage.setItem('editorContent', editor.innerHTML);
-});
-
-// Ripristina il contenuto dell'editor al caricamento della pagina
-window.addEventListener('load', function () {
-    const editor = document.getElementById('editor');
-    const savedContent = localStorage.getItem('editorContent');
-    if (savedContent) {
-        editor.innerHTML = savedContent;
-    }
-});
-
-
-//41. Effetto parallax:Implementa un effetto parallax su uno sfondo mentre l'utente scorre la pagina.
-let background = document.querySelector('.parallaxBackground');
-let scrolled = window.scrollY;
-document.addEventListener('scroll', function () {
-    let scrolled = window.scrollY;
-    let background1 = document.querySelector('.parallaxBackground');
-    background1.style.transform = 'translateY(' + -(scrolled * 0.5) + 'px)';
-});
-
-
-
-//42. Form multi-step:Crea un form suddiviso in più passaggi con validazione per ciascuno.
-function nextStep(currentStepId, nextStepId) {
-    let currentStep = document.getElementById(currentStepId);
-    let nextStep = document.getElementById(nextStepId);
-
-    if (validateStep(currentStep)) {
-        currentStep.classList.remove('active');
-        nextStep.classList.add('active');
-    }
+function italicPulsante() {
+    inputEditor.style.fontWeight = "normal";
+    inputEditor.style.fontStyle = "italic";
+    inputEditor.style.textDecoration = "none";
 }
+italic.addEventListener("click", italicPulsante)
 
-function prevStep(currentStepId, prevStepId) {
-    let currentStep = document.getElementById(currentStepId);
-    let prevStep = document.getElementById(prevStepId);
-
-    currentStep.classList.remove('active');
-    prevStep.classList.add('active');
+function underlinePulsante() {
+    inputEditor.style.fontWeight = "normal";
+    inputEditor.style.fontStyle = "normal";
+    inputEditor.style.textDecoration = "underline";
 }
-
-function validateStep(step) {
-    let inputs = step.querySelectorAll('input');
-    let isValid = true;
-
-    inputs.forEach(function (input) {
-        if (input.hasAttribute('required') && !input.value.trim()) {
-            isValid = false;
-            showErrorMessage(input, 'Questo campo è obbligatorio.');
-        } else {
-            hideErrorMessage(input);
-        }
-    });
-
-    return isValid;
-}
-
-function showErrorMessage(input, message) {
-    let errorMessage = input.nextElementSibling;
-
-    if (!errorMessage || !errorMessage.classList.contains('error-message')) {
-        errorMessage = document.createElement('div');
-        errorMessage.classList.add('error-message');
-        input.parentNode.appendChild(errorMessage);
-    }
-
-    errorMessage.textContent = message;
-}
-
-function hideErrorMessage(input) {
-    var errorMessage = input.nextElementSibling;
-
-    if (errorMessage && errorMessage.classList.contains('error-message')) {
-        errorMessage.textContent = '';
-    }
-}
-
-document.getElementById('multiStepForm').addEventListener('submit', function (event) {
-    event.preventDefault();
-    // Esegui la sottomissione finale del form o altre azioni qui
-    alert('Form inviato con successo!');
-});
-
-
-//45. Gioco di memoria:Crea un gioco di memoria con carte da girare.
-let colors = ['red', 'blue', 'green'];
-let cards = [];
-let flippedCards = [];
-let foundPairs = 0;
-let score = 0;
-let timerGioco = 10;
-let timerId;
-let shuffledBoard;
-
-function createCard(color) {
-    const card = document.createElement('div');
-    card.classList.add('card');
-
-    const inner = document.createElement('div');
-    inner.classList.add('inner');
-
-    const front = document.createElement('div');
-    front.classList.add('front');
-    front.textContent = "?";
-
-    const back = document.createElement('div');
-    back.classList.add('back');
-    back.style.backgroundColor = color;
-
-    inner.appendChild(front);
-    inner.appendChild(back);
-
-    card.appendChild(inner);
-
-    card.addEventListener('click', () => flipCard(card, color));
-    return card;
-}
-
-function shuffle(array) {
-    return array.sort(() => Math.random() - 0.5);
-}
-
-function createGameBoard(isNew) {
-    const gameBoard = document.getElementById('game-board');
-    const shuffledColors = shuffle(colors.concat([...colors])); // Duplica i colori per ottenere le coppie
-
-    if (isNew) {
-        shuffledBoard = shuffle(shuffledColors);
-
-    }
+underline.addEventListener("click", underlinePulsante)
 
 
 
-    shuffledBoard.forEach(color => {
-        const card = createCard(color);
-        cards.push({ color, element: card });
-        gameBoard.appendChild(card);
-    });
-}
-
-function flipCard(card, color) {
-    if (flippedCards.length === 2) {
-        return
-    }
-    if (!card.classList.contains('flipped') && flippedCards.length < 2) {
-        card.classList.add('flipped', 'clicked'); // Aggiungi la classe 'clicked'
-        flippedCards.push({ color, element: card });
-
-        if (flippedCards.length === 2) {
-            checkMatch();
-        }
-    }
-
-    // Aggiorna il colore della carta iniziale
-    card.style.backgroundColor = color;
-    card.querySelector('.front').textContent = ''; // Rimuovi il punto ?
-}
-
-function checkMatch() {
-    const [card1, card2] = flippedCards;
-
-    if (card1.color === card2.color) {
-        foundPairs++;
-        flippedCards = [];
-        if (foundPairs === colors.length) {
-            document.getElementById('win-message').style.display = 'block';
-            clearInterval(timerId);
-        }
-    } else {
-        // In caso di combinazione errata, ritarda il reset del gioco di 1 secondo
-        setTimeout(() => resetGame(false), 1000);
-    }
 
 
-}
 
-//function updateTimer() {
-//  document.getElementById('timer').textContent = `Time: ${timerGioco}`;
-//   if (timerGioco === 0 && foundPairs < colors.length) {
-//      alert('Tempo scaduto! Gioco terminato.');
-//      resetGame(true);
-// } else {
-//     timerGioco--;
-// }
-//}
 
-function resetGame(isEnd) {
-    cards = [];
-    flippedCards = [];
-    foundPairs = 0;
-    timer = 10;
-    document.getElementById('timer').textContent = 'Time: 10';
 
-    const gameBoard = document.getElementById('game-board');
-    gameBoard.innerHTML = '';
-    document.getElementById('win-message').style.display = 'none'; // Nascondi il messaggio di vittoria
-    createGameBoard(isEnd);
-
-    clearInterval(timerId);
-    timerId = setInterval(() => {
-        updateTimer();
-        if (timer === 0 && foundPairs < colors.length) {
-            alert('Tempo scaduto! Gioco terminato.');
-            resetGame(true);
-        }
-    }, 1000);
-}
-
-// Aggiungi un evento click al messaggio "Hai vinto!" per iniziare una nuova partita
-document.getElementById('win-message').addEventListener('click', () => {
-    resetGame(true);
-    score++; // Incrementa lo score solo quando clicchi su "Hai vinto!"
-    document.getElementById('score').textContent = `Score: ${score}`;
-});
-
-createGameBoard(true);
-//updateTimer();
 
 //46. Sistema di filtraggio elementi:Implementa un sistema per filtrare un elenco di elementi.
 const items = [
@@ -955,35 +696,7 @@ document.getElementById('filterType').addEventListener('change', function () {
 
 });
 
-//44. Integra API esterna:Utilizza un'API esterna per visualizzare dati, come le informazioni meteorologiche.
 
-function getWeather() {
-    const apiKey = '0f70330c56f328e8429a8dd3a6190603'
-    const cityInput = document.getElementById('cityInput').value;
-
-    const apiUrl = 'https://home.openweathermap.org/dashboard/trigger';
-
-
-    //effettuo la richiesta con FETCH
-    fetch(apiUrl)
-        .then(responde => responde.json())
-        .then(data => {
-            //estrazione info meteo dalla risposta
-            const temperature = data.main.temp;
-            const description = data.weather[0].description;
-
-            //visualizza le info sulla pagina html
-            const weatherInfoElement = document.getElementById('weatherInfo');
-            weatherInfoElement.innerHTML = `<p>Temperature: ${temperature}°C</p>
-        <p>Condition: ${description}</p>`;
-        })
-
-        .catch(error => {
-            console.error('Error fetching weather data:', error);
-            const weatherInfoElement = document.getElementById('weatherInfo');
-            weatherInfoElement.innerHTML = '<p>Error fetching weather data. Please try again.</p>';
-        });
-}
 //47. Galleria immagini con zoom:Crea una galleria di immagini che permette di zoomare al clic.
 let classeImmagini = document.getElementsByClassName("zoomImg")
 for (let i = 0; i < classeImmagini.length; i++) {
